@@ -46,3 +46,9 @@ function tableLen(T)
     end
     return count
 end
+
+function debugPrint(msg)
+    if debug then
+        system.print(msg)
+    end
+end

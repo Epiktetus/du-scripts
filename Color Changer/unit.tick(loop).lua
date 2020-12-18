@@ -9,7 +9,7 @@ G,GreenSpeed = cleanColor(G, GreenSpeed, GreenRev)
 B,BlueSpeed = cleanColor(B, BlueSpeed, BlueRev)
 
 for i = 1, LightCount do
-	if debug then system.print("Light "..i.." set to : "..R..","..G..","..B) end
+	debugPrint("Light "..i.." set to : "..R..","..G..","..B)
 	Lights[i].setRGBColor(R, G, B)
 end
 
