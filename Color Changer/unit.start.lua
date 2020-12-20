@@ -1,6 +1,6 @@
 looptime = 0.25 --export: Seconds between color changes
-updatetime = 1 --export: Seconds between updates from a connected Databank
-debug = false --export: Spams your console with too much info
+updatetime = 2 --export: Seconds between updates from a connected Databank
+debug = true --export: Spams your console with too much info
 
 RedStart = 0 --export: Where this color starts (0 is black, 255 is 100%)
 RedSpeed = 255 --export: How much this color changes each loop
