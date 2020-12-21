@@ -6,7 +6,8 @@ templateStyle = [[<style>
   .username {
     background:green;
     border-radius:1vw;
-    padding:.2vw;
+    padding:.25vw 1vw;
+    margin-right:1vw;
   }
 </style>]]
 templateHead = [[<div class=chatlog>]]
@@ -17,9 +18,10 @@ templateLineEnd = [[</div>]]
 templateFoot = [[</div>]]
 
 function addMessage(text)
-    table.insert(Messages, templateLineStart..
+    db.setStringValue(system.getTime(), 
+        templateLineStart..
         templateUserStart..
-        database.getPlayer(id).name..
+        database.getPlayer(unit.getMasterPlayerId()).name..
         templateUserEnd..
         text..
         templateLineEnd
@@ -28,8 +30,12 @@ end
 
 function updateDisplay()
     MessagesHTML = "/n"
-    for key,msg in pairs(Messages) do
-        MessagesHTML = MessagesHTML.."/n"..msg
+    --system.print (db.getKeys())
+    Messages,pos,err = json.decode(db.getKeys(),1,nil)
+    table.sort(Messages)
+    for index,key in pairs(Messages) do
+        --system.print (db.getStringValue(key))
+        MessagesHTML = MessagesHTML.."/n"..db.getStringValue(key)
     end
     screen.setHTML(templateStyle..templateHead..MessagesHTML..templateFoot)
 end
